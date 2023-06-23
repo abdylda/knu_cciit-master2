@@ -1,0 +1,24 @@
+{% extends 'pages/index.html' %}
+{% block title %}Список Категория{% endblock %}
+{% load static %}
+{% block content %}
+     <table id="table" class="table table-hover  table-light table-striped table-bordered">
+        <thead class="thead-dark">
+        <button type="button" class="bg-light text-dark btn-block "><h3>Список Категория</h3></button>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Категория</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categoryler %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <th><a href="{%url 'category_koruu' id=category.id %}">{{category.Naimenovanie}}</a></th>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

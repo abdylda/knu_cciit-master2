@@ -1,0 +1,52 @@
+{% extends 'pages/index.html' %}
+{% block title %}Учет картриджей{% endblock %}
+{% load static %}
+{% block content %}
+
+        <style>
+        @page  {
+            size: "A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+            @top-center {
+                content: "COMPANY name";
+            }
+        @bottom-right {
+            content: "Page" counter(page) " of " counter(pages);
+        }
+        }
+    </style>
+
+            <div class="card-body">
+                <h1 class="display-4">Учет картриджей</h1>
+            <table id="table" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Корпус</th>
+                <th>Название картридж</th>
+                <th>Подразделение</th>
+                <th>Кабинет</th>
+                <th>Название кабинета</th>
+                <th>Количество</th>
+                <th>Дата</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for cartridge in cartridges %}
+                <tr>
+                    <td>{{ cartridge.campus }}</td>
+                    <td>{{ cartridge.cartridge }}</td>
+                    <td>{{ cartridge.faculty }}</td>
+                    <td>{{ cartridge.kabinet }}</td>
+                    <td>{{ cartridge.namKabinet }}</td>
+                    <td>{{ cartridge.count }}</td>
+                    <td>{{ cartridge.created_at }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+            </div>
+
+{% endblock %}
+
+

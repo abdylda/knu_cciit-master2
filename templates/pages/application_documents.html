@@ -1,0 +1,51 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+
+            <div class="card-body">
+                <h1 class="display-4">Заявка документы</h1>
+            <table id="table"  class="table table-striped table-bordered">
+        <thead>
+            <tr><th scope="col">№</th>
+                <th>Название заявка</th>
+                <th>Подразделение</th>
+
+                <th>Принял заявка</th>
+                <th>Без рапорт</th>
+                <th>Скачать</th>
+
+            </tr>
+        </thead>
+        <tbody>
+             {% for Application in applications %}
+                <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ Application.name }}</td>
+                    <td>{{ Application.faculty }}</td>
+
+
+                    <td>{% if Application.accepted_application %}Принял заявка{% else %}{% endif %}</td>
+                    <td>{% if Application.no_report %}Без рапарт{% else %}{% endif %}</td>
+                    <td>
+                        {% if Application.document %}
+                            <a href="{{ Application.document.url }}" class="btn btn-primary btn-sm" download>
+                                Скачать
+
+                            </a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+
+
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+            </div>
+
+{% endblock %}
+
+

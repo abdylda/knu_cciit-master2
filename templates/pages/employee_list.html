@@ -1,0 +1,26 @@
+{% extends 'pages/index.html' %}
+{% block title %}Список сотрудники{% endblock %}
+{% load static %}
+{% block content %}
+<h1>List of Employees</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Department</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in employees %}
+    <tr>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.position }}</td>
+      <td>{{ employee.department }}</td>
+      <td>{{ employee.salary }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+
+            <div class="card-body">
+                <h1 class="display-4">Заявка на тендер</h1>
+            <table id="table"  class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th>Название заявка</th>
+                <th>Заявка на закупку готова</th>
+                <th>На складе</th>
+                <th>Скачать</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for Tender in tenders %}
+                <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ Tender.name }}</td>
+
+                    <td>{% if Tender.purchase_order_is_ready %}Заявка на закупку готова{% else %}{% endif %}</td>
+                    <td>{% if Tender.in_stock %}На складе{% else %}{% endif %}</td>
+                    <td>
+                <a href="{{ Application.document.url }}" class="btn btn-primary btn-sm">
+              Скачать
+
+            </a>
+                </td>
+
+                </tr>
+
+
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+            </div>
+
+{% endblock %}
+
+
