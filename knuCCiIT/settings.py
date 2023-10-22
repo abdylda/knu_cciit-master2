@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'knuCCiIT.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'knu_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'NAME': 'ciit',
+        'USER': 'ciit',
+        'PASSWORD': 'Ciit123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
